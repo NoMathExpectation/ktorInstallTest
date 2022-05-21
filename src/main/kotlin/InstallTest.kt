@@ -7,8 +7,6 @@ import net.mamoe.mirai.console.command.CommandManager
 import net.mamoe.mirai.console.command.SimpleCommand
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
-import net.mamoe.mirai.event.GlobalEventChannel
-import net.mamoe.mirai.event.events.MessageEvent
 import net.mamoe.mirai.utils.info
 
 object InstallTest : KotlinPlugin(
@@ -18,7 +16,6 @@ object InstallTest : KotlinPlugin(
     )
 ) {
     override fun onEnable() {
-        logger.info { "Plugin loaded" }
         CommandManager.registerCommand(object: SimpleCommand(this, "test") {
             @Handler
             fun handle() {
@@ -29,5 +26,6 @@ object InstallTest : KotlinPlugin(
                 }
             }
         })
+        logger.info { "Ktor install test loaded." }
     }
 }
